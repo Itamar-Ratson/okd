@@ -104,8 +104,7 @@ module "ec2_instance" {
   associate_public_ip_address = true
   
   user_data = templatefile("${path.module}/install-okd.sh", {
-    public_ip = "PLACEHOLDER"
-    ssh_key   = tls_private_key.okd_ssh.public_key_openssh
+    ssh_key = tls_private_key.okd_ssh.public_key_openssh
   })
 }
 
